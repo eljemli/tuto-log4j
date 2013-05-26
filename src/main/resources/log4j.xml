@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    
+    <!-- Les sorties utilisées pour afficher les messages de journalisation -->
+    
+    <!-- Sortie 1 : Console  -->
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+       <layout class="org.apache.log4j.PatternLayout"> 
+          <param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n"/> <!-- Format du message  -->
+       </layout> 
+    </appender>    
+     <!-- Sortie 2 : Fichier  -->
+    <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/fichier.log"/>
+       <layout class="org.apache.log4j.PatternLayout"> 
+          <param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n"/> 
+       </layout> 
+    </appender>
+    
+    <!-- Paramétrage du Log4J  -->
+     <root>
+        <priority value="INFO" />   <!-- Niveau de journalisation  -->
+        <appender-ref ref="CONSOLE" /><!-- Choix du sortie  -->
+     </root>
+</log4j:configuration>
